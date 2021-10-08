@@ -46,3 +46,12 @@ Service Statuses
 	Create
 	Read
 	Update
+	
+For future plans with this project I want to 
+Get all test running 
+Add a way to see full service tickets 
+	1. In general just all of them 
+	2. By customer
+	3. By Status
+Add a way to add reason for termination for employees 
+Add membership levels
