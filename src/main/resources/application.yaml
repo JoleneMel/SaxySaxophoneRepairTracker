@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    password: saxophone
+    username: saxophone
+    url: jdbc:mysql://localhost:3306/repairsaxophone
+
+logging:
+  level:
+    root: warn
+    '[com.saxyrepairtracker]': debug

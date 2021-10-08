@@ -1,0 +1,8 @@
+Spring:
+  datasource:
+    url: jdbc:h2:mem:repairsaxophone
+    
+logging:
+  level:
+    root: warn
+    '[com.saxyrepairtracker]': debug
