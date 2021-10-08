@@ -1,0 +1,70 @@
+1.) Customer
+
+2.) Technician
+    Name: John Smith
+    Billable Rate: $35
+
+3.) Service Ticket
+  Number:  Auto incrementing
+  Customer: 
+  Type:     Repair, Tune-up, Overhaul, Cleaning, Vintage/Antique
+  Description/notes: "F key is sticking. Bent part from dropping." Varchar/String
+  Status:   Entered, In House, Part Ordered, On Hold, In Progress, Ready For Pickup 
+            (Get rolled up with the most recent status when a new status 
+			is entered)
+  Estimated Cost: $400
+  Actual Cost:    $523  (When does this get entered?)
+                                                        
+4.) Service Status
+  Number: <Service Ticket Number>  
+  Date:   Date status changed or modified. 
+  Status: Entered, In House, Part Ordered, On Hold, In Progress, Ready For Pickup
+  Status Description: Ordered new key from Tom's Warehouse, parts are on backorder until 09/22/2021
+
+5.) Service Line Items
+  Number:          <Service Ticket Number>
+  Order/Line Item: 1 (Sequential number per ticket for each line item)
+  Technician:      Who is doing the work.
+  Action/Task:     Replaced Z key from part 234324-34 located in inventory.
+  Is Complete:     Done (boolean) 
+  Hours:           1.5h
+  Cost:            $234 <Is this just parts, or the does it include labor?>
+
+6.) Lookup Tables
+  Can do in code:
+  
+    public enum ServiceStatusType {
+      ENTERED, IN_HOUSE, CUSTOMER_PICKEDUP
+    }
+
+  or as tables:
+
+  SERVICE_STATUS_TYPE
+    ID: int,
+    ABBREVIATION: String,
+    Name: String
+
+Relationships
+---------------------------------------------------------------
+Customer can have multiple service tickets.
+A service ticket can have multiple technician assigned.
+A service ticket can have multiple service statuses.
+A service ticket can have multiple line items, each line item can have a cost, status or technician assigned to it.
+
+Example Service Ticket:
+---------------------------------------------------------------
+Bobby Joe
+#0123123 - F key is sticking. Bent part from dropping.
+Status: In-House
+
+Line 1] - Replace Z key
+Line 2] - Hammer the dents out
+
+
+User Stories
+---------------------------------------------------------------
+When the status of a service ticket changes, the the previous status and description
+are stored into a date/timestamped history table so that a technician or customer service
+rep can view timeline.
+  
+
