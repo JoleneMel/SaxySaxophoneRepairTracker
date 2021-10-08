@@ -40,7 +40,7 @@ Service Line Item
 	read
 	update
 	
-Service Update		
+Service Statuses		
 (Jolene)
 
 	Create
